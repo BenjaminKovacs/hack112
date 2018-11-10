@@ -1,3 +1,4 @@
+
 import module_manager
 module_manager.review()
 
@@ -91,10 +92,10 @@ class PygameGame(object):
     def keyPressed(self, keyCode, modifier):
         print(keyCode)
         print(chr(keyCode))
-        if self.mainGame:
-            if keyCode == 27:
-                self.Task = False
-                self.scroll = pygame.transform.scale(pygame.image.load(os.path.join('images/scroll.png')), (100,100))
+        # if self.mainGame:
+        #     if keyCode == 27:
+        #         self.Task = False
+        #         self.scroll = pygame.transform.scale(pygame.image.load(os.path.join('images/scroll.png')), (100,100))
         levelScreen.textString(pygame, self.width, self.height, keyCode)
         pass
 
@@ -124,6 +125,7 @@ class PygameGame(object):
         pass
 
     def isKeyPressed(self, key):
+        
         ''' return whether a specific key is being held '''
         return self._keys.get(key, False)
 

@@ -48,11 +48,17 @@ def addRandomTask(d, taskList):
 
 
 def dictTask(taskList, d):
-    # turns tasklist into a dictionary with the hunger points
+    # turns tasklist into a dictionary that maps to the hunger points
     taskDict = {}
     for task in taskList:
         taskDict[task] = d[task]
     return taskDict
+
+def completeTask(taskList, hungerLevel):
+    for task in taskList:
+        if taskList[task][1] == True:
+            hungerLevel -= taskList[task][0]
+    return hungerLevel
 
 
 class Statsbar(object):

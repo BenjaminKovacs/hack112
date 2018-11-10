@@ -74,17 +74,17 @@ class Image(Surface):
     def draw(self, screen):
         self.surf = self.pygame.transform.scale(self.surf, (self.width, self.height))
         screen.blit(self.surf, (self.x-self.width//2, self.y-self.height//2))
-
-class BlinkingRectangle(Rectangle):
-    def __init__(self, pygame, x, y, width, height, color, period):
-        super().__init__(pygame, x, y, width, height, color)
-        self.period = period
-        self.calls = 0
-        
-    def draw(self, screen):
-        self.calls += 1
-        if self.calls/self.period % 2 < 1:
-            super().draw(screen)
+# 
+# class BlinkingRectangle(Rectangle):
+#     def __init__(self, pygame, x, y, width, height, color, period):
+#         super().__init__(pygame, x, y, width, height, color)
+#         self.period = period
+#         self.calls = 0
+#         
+#     def draw(self, screen):
+#         self.calls += 1
+#         if self.calls/self.period % 2 < 1:
+#             super().draw(screen)
         
 def checkButtons(x, y):
     for button in Button.buttonList:
