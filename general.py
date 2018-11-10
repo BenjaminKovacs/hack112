@@ -11,12 +11,14 @@ class Surface(object):
 class Rectangle(Surface):
     def __init__(self, pygame, x, y, width, height, color):
         super().__init__()
+        self.color = color
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         self.surf = pygame.Surface((width, height))
-        self.surf.fill(color)
+        if color != None:
+            self.surf.fill(color)
         self.rect = self.surf.get_rect()
         self.pygame = pygame
     
@@ -24,7 +26,8 @@ class Rectangle(Surface):
         return (self.x-self.width//2 <= x <= self.x+self.width//2) and (self.y-self.height//2 <= y <= self.y+self.height//2)
         
     def draw(self, screen):
-        screen.blit(self.surf, (self.x-self.width//2, self.y-self.height//2))
+        if self.color != None:
+            screen.blit(self.surf, (self.x-self.width//2, self.y-self.height//2))
         
 class Button(Rectangle):
     buttonList = []
