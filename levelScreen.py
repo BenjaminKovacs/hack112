@@ -4,6 +4,7 @@ import levels
 import string
 text = None
 global textDisplay
+<<<<<<< HEAD
 
 def readFile(path):
     with open(path, "rt") as f:
@@ -18,9 +19,18 @@ def addAndDisplay(text):
         pass
     tasks = readFile("Tasks.txt") + text + "\n"
     writeFile("Tasks.txt", tasks)
+=======
+global scroll
+def addAndDisplay(text):
+    print('boo')
+    pass
+>>>>>>> 3a29fe74560644d004026993b372e6ec8d9c4a51
 
 def run(text):
     try:
+        text = text.replace('9','(')
+        text = text.replace('0',')')
+        print(text)
         eval(text)
     except:
         addAndDisplay(text)
@@ -30,8 +40,10 @@ def createScreen(pygame, width, height):
     global textDisplay
     textDisplay = general.Button(pygame, 0,0,0,0, None, '', 'pass', (255,255,255))
     general.Image(pygame, width//2, height//2, width, height, 'images/pictures.jpg')
-    general.Image(pygame, width//3.1, 2*height//3, width//5, height//5, 'images/task list.png')
+    global scroll
+    scroll = general.Image(pygame, width//3.1, 2*height//3, width//5, height//5, 'images/task list.png')
     general.Image(pygame, width//2, 2*height//3, width//5, height//5, 'images/cat.png')
+    general.Button(pygame, 191, 666, 112, 146,None,'','magnifyScroll(600,800)')
     
 def textEntry(pygame, width, height, text):
     global textDisplay
