@@ -48,6 +48,7 @@ class Button(Rectangle):
         
     def onClick(self):
         print('running')
+        print(self.function)
         if self.function != 'pass':
             eval('buttons.'+self.function)
         
