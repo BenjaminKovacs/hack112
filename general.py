@@ -11,6 +11,9 @@ class Surface(object):
     def bringForward(self):
         Surface.drawList.remove(self)
         Surface.drawList.append(self)
+        
+    def destroy(self):
+        Surface.drawList.remove(self)
 
 class Rectangle(Surface):
     def __init__(self, pygame, x, y, width, height, color):
@@ -70,7 +73,16 @@ class Image(Surface):
         self.pygame = pygame
         self.width = width
         self.height = height
-        
+        self.iw = width
+        self.ih = height
+        self.ix = x
+        self.iy = y
+    def reset(self):
+        self.x=self.ix
+        self.y=self.iy
+        self.height=self.ih
+        self.width=self.iw
+            
     def draw(self, screen):
         self.surf = self.pygame.transform.scale(self.surf, (self.width, self.height))
         screen.blit(self.surf, (self.x-self.width//2, self.y-self.height//2))
