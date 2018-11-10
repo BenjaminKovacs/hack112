@@ -1,0 +1,2 @@
+def startGame():
+    print('starting')
