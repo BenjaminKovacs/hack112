@@ -3,6 +3,10 @@ class Surface(object):
     drawList = []
     def __init__(self):
         Surface.drawList.append(self)
+        
+    @staticmethod
+    def clear():
+        Surface.drawList = []
 
 class Rectangle(Surface):
     def __init__(self, pygame, x, y, width, height, color):
