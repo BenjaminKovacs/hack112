@@ -47,6 +47,7 @@ def addRandomTask(d, taskList):
     taskList.append(task)
     return taskList
 
+
 def dictTask(taskList, d):
     # turns tasklist into a dictionary with the hunger points
     taskDict = {}
