@@ -22,25 +22,19 @@ class Pet(object):
     def draw(self, surface):
         pass
 
-class Tasks(object):
-    def __init__(self, taskList, img, x, y):
-        self.taskList = taskList
-        self.img = img
-        self.x = x
-        self.y = y
+def tasks():
+    d = {"Begin or continue writing a book": [50, False], "Go to a city": [10, False], "Go kayaking": [15, False],
+           "Go rock climbing": [10, False], "Go diving": [20, False], "Wake up at 5am": [10, False],
+           "Paint a picture": [15, False], "Go to the gym": [5, False], "Eat healthy food": [5, False],
+           "Write down 3 good things that happened to you": [5, False], "Exercise": [5, False],
+           "Call an old friend": [5, False], "Take a nap": [10, False], "Talk to a stranger": [10, False],
+           "Take a walk in the woods": [10, False], "Introduce yourself to someone new": [15, False],
+           "Park in the farthest parking spot": [5, False], "Do not eat fast food": [10, False],
+           "Drink 8 cups of water today": [10, False], "Read": [5, False], "Listen to music": [5, False],
+           "Reduce, reuse, and recycle": [20, False]}
+    return d
 
-    def addTask(self, task):
-        self.taskList.append(task)
 
-    def draw(self):
-        # draw image
-        fontSize = len(self.img)//len(self.taskList)
-        for i in range(len(self.taskList)):
-            # create text len(img[0])//2, y*(fontSize*i)+margin
-            pass
-
-    def __repr__(self):
-        return str(self.taskList)
 
 class Statsbar(object):
     def __init__(self, level, x, y):
