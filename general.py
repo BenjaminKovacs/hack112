@@ -65,7 +65,6 @@ class Image(Surface):
     def __init__(self, pygame, x, y, width, height, image):
         super().__init__()
         self.surf = pygame.image.load(image)
-        self.surf = pygame.transform.scale(self.surf, (width, height))
         self.x = x
         self.y = y
         self.pygame = pygame
@@ -73,6 +72,7 @@ class Image(Surface):
         self.height = height
         
     def draw(self, screen):
+        self.surf = self.pygame.transform.scale(self.surf, (self.width, self.height))
         screen.blit(self.surf, (self.x-self.width//2, self.y-self.height//2))
 
 class BlinkingRectangle(Rectangle):
