@@ -23,7 +23,7 @@ class Pet(object):
         pass
 
 def tasks():
-    d = {"Begin or continue writing a book": [50, False], "Go to a city": [10, False], "Go kayaking": [15, False],
+    d = {"Begin or continue writing a book": [30, False], "Explore the city": [10, False], "Go kayaking": [15, False],
            "Go rock climbing": [10, False], "Go diving": [20, False], "Wake up at 5am": [10, False],
            "Paint a picture": [15, False], "Go to the gym": [5, False], "Eat healthy food": [5, False],
            "Write down 3 good things that happened to you": [5, False], "Exercise": [5, False],
@@ -33,6 +33,11 @@ def tasks():
            "Drink 8 cups of water today": [10, False], "Read": [5, False], "Listen to music": [5, False],
            "Reduce, reuse, and recycle": [20, False]}
     return d
+
+def makeTaskList():
+    lst = []
+    # lets user input tasks
+    return lst
 
 import random
 def addRandomTask(d, taskList):
