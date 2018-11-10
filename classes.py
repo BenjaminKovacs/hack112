@@ -14,7 +14,7 @@ class Pet(object):
         self.y += dy
 
     def angerLevel(self):
-        return self.hunger % 20
+        return self.hunger // 20
 
     def getImage(self):
         return self.img
@@ -22,12 +22,25 @@ class Pet(object):
     def draw(self, surface):
         pass
 
-class Task(object):
-    def __init__(self, task):
-        self.task = task
+class Tasks(object):
+    def __init__(self, taskList, img, x, y):
+        self.taskList = taskList
+        self.img = img
+        self.x = x
+        self.y = y
+
+    def addTask(self, task):
+        self.taskList.append(task)
+
+    def draw(self):
+        # draw image
+        fontSize = len(self.img)//len(self.taskList)
+        for i in range(len(self.taskList)):
+            # create text len(img[0])//2, y*(fontSize*i)+margin
+            pass
 
     def __repr__(self):
-        return str(self.task)
+        return str(self.taskList)
 
 class Statsbar(object):
     def __init__(self, level, x, y):
