@@ -5,8 +5,19 @@ import string
 text = None
 global textDisplay
 
+def readFile(path):
+    with open(path, "rt") as f:
+        return f.read()
+
+def writeFile(path, contents):
+    with open(path, "wt") as f:
+        f.write(contents)
+
 def addAndDisplay(text):
-    pass
+    if text = "":
+        pass
+    tasks = readFile("Tasks.txt") + text + "\n"
+    writeFile("Tasks.txt", tasks)
 
 def run(text):
     try:
