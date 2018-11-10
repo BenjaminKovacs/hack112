@@ -5,11 +5,14 @@ global text
 text = None
 global textDisplay
 
+def addAndDisplay(text):
+    pass
 
 def run(text):
     try:
         eval(text)
     except:
+        addAndDisplay(text)
         
 
 def createScreen(pygame, width, height):
