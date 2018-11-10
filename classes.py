@@ -54,6 +54,12 @@ def dictTask(taskList, d):
         taskDict[task] = d[task]
     return taskDict
 
+def completeTask(taskDict, hunger):
+    for task in taskDict:
+        if taskDict[task][1] == True:
+            hunger += taskDict[task][0]
+    return hunger
+
 
 class Statsbar(object):
     def __init__(self, level, x, y):
