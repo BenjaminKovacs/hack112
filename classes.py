@@ -34,9 +34,8 @@ def tasks():
            "Reduce, reuse, and recycle": [20, False]}
     return d
 
-def makeTaskList():
-    lst = []
-    # lets user input tasks
+def makeTaskList(lst, task):
+    lst.append(task)
     return lst
 
 import random
