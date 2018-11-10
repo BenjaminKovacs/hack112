@@ -4,19 +4,32 @@ import levels
 import string
 text = None
 global textDisplay
-global scroll
+
+def readFile(path):
+    with open(path, "rt") as f:
+        return f.read()
+
+def writeFile(path, contents):
+    with open(path, "wt") as f:
+        f.write(contents)
+
 def addAndDisplay(text):
-    print('boo')
-    pass
+    # if text == "":
+    #     pass
+    tasks = readFile("Tasks.txt") + text + "\n"
+    writeFile("Tasks.txt", tasks)
+    
+global scroll
+
 
 def run(text):
-    try:
-        text = text.replace('9','(')
-        text = text.replace('0',')')
-        print(text)
-        eval(text)
-    except:
-        addAndDisplay(text)
+    # try:
+    #     text = text.replace('9','(')
+    #     text = text.replace('0',')')
+    #     print(text)
+    #     eval(text)
+    # except:
+    addAndDisplay(text)
         
 
 def createScreen(pygame, width, height):
@@ -45,7 +58,7 @@ def textEntry(pygame, width, height, text):
 def textString(pygame, width, height, char):
     global text
     if char == 271 or char == 13:
-        if text != None:
+        if text != None and text != "":
             run(text)
         text = ""
         textEntry(pygame, width, height, text)
