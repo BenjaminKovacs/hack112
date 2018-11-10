@@ -5,6 +5,7 @@ module_manager.review()
 # import the pygame module
 import pygame
 import general
+import startScreen
 # import pygame.locals for easier access to key coordinates
 from pygame.locals import *
 
@@ -22,14 +23,16 @@ pygame.init()
 
 # create the screen object
 # here we pass it a size of 800x600
-screen = pygame.display.set_mode((800, 600))
+width = 1920
+height = 1080
+screen = pygame.display.set_mode((width, height))
 
 # instantiate our player; right now he's just a rectangle
 player = Player()
-
+startScreen.createScreen(pygame, width, height)
 # Variable to keep our main loop running
 running = True
-general.Button(pygame, 400, 300, 100, 50, (0,255,0), 'test','test()')
+
 # Our main loop!
 while running:
     # for loop through the event queue

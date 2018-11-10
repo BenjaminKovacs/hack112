@@ -1,4 +1,4 @@
-
+import buttons
 class Surface(object):
     drawList = []
     def __init__(self):
@@ -17,7 +17,7 @@ class Rectangle(Surface):
         self.pygame = pygame
     
     def pointInRect(self, x, y):
-        return (self.x-self.width//2 <= x <= self.x+self.width//2) and (self.y-self.height//2 <= y <= self.x+self.height//2)
+        return (self.x-self.width//2 <= x <= self.x+self.width//2) and (self.y-self.height//2 <= y <= self.y+self.height//2)
         
     def draw(self, screen):
         screen.blit(self.surf, (self.x-self.width//2, self.y-self.height//2))
@@ -32,7 +32,7 @@ class Button(Rectangle):
         
     def onClick(self):
         print('running')
-        eval(self.function)
+        eval('buttons.'+self.function)
         
     def checkClick(self, x, y):
         print('checking', x, y)
@@ -46,6 +46,20 @@ class Button(Rectangle):
         rect = surf.get_rect()
         rect.center = ((self.x, self.y))
         screen.blit(surf, rect)
+
+class Image(Surface):
+    def __init__(self, pygame, x, y, width, height, image):
+        super().__init__()
+        self.surf = pygame.image.load(image)
+        self.surf = pygame.transform.scale(self.surf, (width, height))
+        self.x = x
+        self.y = y
+        self.pygame = pygame
+        self.width = width
+        self.height = height
+        
+    def draw(self, screen):
+        screen.blit(self.surf, (self.x-self.width//2, self.y-self.height//2))
 
 def checkButtons(x, y):
     for button in Button.buttonList:
