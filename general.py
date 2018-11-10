@@ -7,6 +7,10 @@ class Surface(object):
     @staticmethod
     def clear():
         Surface.drawList = []
+        
+    def bringForward(self):
+        Surface.drawList.remove(self)
+        Surface.drawList.append(self)
 
 class Rectangle(Surface):
     def __init__(self, pygame, x, y, width, height, color):
@@ -31,15 +35,18 @@ class Rectangle(Surface):
         
 class Button(Rectangle):
     buttonList = []
-    def __init__(self, pygame, x, y, width, height, color, text, functionString):
+    def __init__(self, pygame, x, y, width, height, color, text, functionString, fontColor=(0,0,0)):
         super().__init__(pygame, x, y, width, height, color)
         self.text = text
         self.function = functionString
         Button.buttonList.append(self)
+        self.fontColor = fontColor
+        
         
     def onClick(self):
         print('running')
-        eval('buttons.'+self.function)
+        if self.function != 'pass':
+            eval('buttons.'+self.function)
         
     def checkClick(self, x, y):
         print('checking', x, y)
@@ -49,7 +56,7 @@ class Button(Rectangle):
     def draw(self, screen):
         super().draw(screen)
         font = self.pygame.font.Font('freesansbold.ttf',18)
-        surf = font.render(self.text, True, (0,0,0))
+        surf = font.render(self.text, True, self.fontColor)
         rect = surf.get_rect()
         rect.center = ((self.x, self.y))
         screen.blit(surf, rect)
@@ -68,6 +75,17 @@ class Image(Surface):
     def draw(self, screen):
         screen.blit(self.surf, (self.x-self.width//2, self.y-self.height//2))
 
+class BlinkingRectangle(Rectangle):
+    def __init__(self, pygame, x, y, width, height, color, period):
+        super().__init__(pygame, x, y, width, height, color)
+        self.period = period
+        self.calls = 0
+        
+    def draw(self, screen):
+        self.calls += 1
+        if self.calls/self.period % 2 < 1:
+            super().draw(screen)
+        
 def checkButtons(x, y):
     for button in Button.buttonList:
         button.checkClick(x, y)

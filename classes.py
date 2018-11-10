@@ -1,3 +1,4 @@
+import general
 class Pet(object):
     def __init__(self, name, x, y, img):
         self.name = name

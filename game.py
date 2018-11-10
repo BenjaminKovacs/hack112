@@ -89,10 +89,13 @@ class PygameGame(object):
         pass
 
     def keyPressed(self, keyCode, modifier):
+        print(keyCode)
+        print(chr(keyCode))
         if self.mainGame:
             if keyCode == 27:
                 self.Task = False
                 self.scroll = pygame.transform.scale(pygame.image.load(os.path.join('images/scroll.png')), (100,100))
+        levelScreen.textString(pygame, self.width, self.height, keyCode)
         pass
 
     def keyReleased(self, keyCode, modifier):
