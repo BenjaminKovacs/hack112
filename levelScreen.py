@@ -4,7 +4,6 @@ import levels
 import string
 text = None
 global textDisplay
-<<<<<<< HEAD
 
 def readFile(path):
     with open(path, "rt") as f:
@@ -15,16 +14,15 @@ def writeFile(path, contents):
         f.write(contents)
 
 def addAndDisplay(text):
-    if text = "":
+    if text == "":
         pass
     tasks = readFile("Tasks.txt") + text + "\n"
     writeFile("Tasks.txt", tasks)
-=======
+    
 global scroll
 def addAndDisplay(text):
     print('boo')
     pass
->>>>>>> 3a29fe74560644d004026993b372e6ec8d9c4a51
 
 def run(text):
     try:
