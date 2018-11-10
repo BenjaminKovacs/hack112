@@ -34,6 +34,19 @@ def tasks():
            "Reduce, reuse, and recycle": [20, False]}
     return d
 
+import random
+def addRandomTask(d, taskList):
+    lst = list(d)
+    task = random.choice(lst)
+    taskList.append(task)
+    return taskList
+
+def dictTask(taskList, d):
+    # turns tasklist into a dictionary with the hunger points
+    taskDict = {}
+    for task in taskList:
+        taskDict[task] = d[task]
+    return taskDict
 
 
 class Statsbar(object):
