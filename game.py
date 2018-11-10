@@ -69,6 +69,8 @@ class PygameGame(object):
         self.Task = False
         self.mainGame = False
         startScreen.createScreen(pygame, self.width, self.height)
+        pygame.mixer.music.load('hack112_music.wav')
+        pygame.mixer.music.play(-1)
 
     def mousePressed(self, x, y):
         general.checkButtons(x, y)
